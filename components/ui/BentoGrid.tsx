@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
@@ -52,8 +54,8 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = ["TensorFlow", "PyTorch", "Spark"];
+  const rightLists = ["Hadoop", "MySQL", "Hive"];
 
   const [copied, setCopied] = useState(false);
 
@@ -67,7 +69,7 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
+    const text = "mingjia.guan@gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
@@ -89,6 +91,8 @@ export const BentoGridItem = ({
     >
       {/* add img divs */}
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
+        {/* for the github 3d globe */}
+        {id === 2 && <GridGlobe />}
         <div className="w-full h-full absolute">
           {img && (
             <img
@@ -131,13 +135,13 @@ export const BentoGridItem = ({
           {/* add text-3xl max-w-96 , remove text-neutral-600 dark:text-neutral-300*/}
           {/* remove mb-2 mt-2 */}
           <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
+            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 ${id === 1 ? "text-black" : ""
+              }`}
           >
             {title}
           </div>
 
-          {/* for the github 3d globe */}
-          {id === 2 && <GridGlobe />}
+
 
           {/* Tech stack list div */}
           {id === 3 && (
